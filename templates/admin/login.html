@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Login | AgroSphere</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    /* Base Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      height: 100%;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #4caf50, #81c784);
+      overflow: hidden;
+    }
+
+    /* Magical Animated Background */
+    body::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background-image: radial-gradient(circle, #a5d6a7 1px, transparent 1px);
+      background-size: 60px 60px;
+      animation: rotateBg 80s linear infinite;
+      z-index: 0;
+      opacity: 0.2;
+    }
+
+    @keyframes rotateBg {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    .container {
+      position: relative;
+      z-index: 2;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+
+    .form-card {
+      background: rgba(255, 255, 255, 0.95);
+      border-radius: 25px;
+      padding: 50px 40px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+      max-width: 450px;
+      width: 100%;
+      text-align: center;
+      position: relative;
+      animation: fadeSlideIn 1.2s ease-out;
+    }
+
+    @keyframes fadeSlideIn {
+      from {
+        opacity: 0;
+        transform: translateY(50px) scale(0.95);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    h2 {
+      font-size: 30px;
+      color: #2e7d32;
+      margin-bottom: 25px;
+      animation: glow 2.5s ease-in-out infinite alternate;
+    }
+
+    @keyframes glow {
+      from {
+        text-shadow: 0 0 5px #4caf50;
+      }
+      to {
+        text-shadow: 0 0 20px #66bb6a;
+      }
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    input {
+      padding: 12px 15px;
+      font-size: 16px;
+      border: 2px solid #a5d6a7;
+      border-radius: 10px;
+      transition: 0.4s ease;
+      outline: none;
+    }
+
+    input:focus {
+      border-color: #4caf50;
+      box-shadow: 0 0 10px rgba(76, 175, 80, 0.3);
+    }
+
+    button {
+      padding: 14px;
+      background: linear-gradient(135deg, #4caf50, #66bb6a);
+      border: none;
+      color: white;
+      font-weight: bold;
+      border-radius: 12px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 8px 20px rgba(76, 175, 80, 0.4);
+    }
+
+    button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 24px rgba(76, 175, 80, 0.5);
+    }
+
+    .back-link {
+      margin-top: 20px;
+      display: inline-block;
+      font-size: 15px;
+      color: #2e7d32;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .back-link:hover {
+      color: #1b5e20;
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="form-card">
+      <h2>Admin Login</h2>
+      <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Login to Admin Panel</button>
+      </form>
+      <a class="back-link" href="/">← Back to Home</a>
+    </div>
+  </div>
+</body>
+</html>

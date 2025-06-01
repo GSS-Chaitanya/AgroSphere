@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AgroSphere Dashboard</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #111;
+            color: white;
+            padding: 0;
+            margin: 0;
+            overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* Header Styles */
+        .navbar {
+            background-color: rgba(0, 0, 0, 0.6);
+            color: white;
+            padding: 20px 40px;
+            font-size: 26px;
+            font-weight: 600;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            text-align: center;
+            border-bottom: 2px solid #444;
+            backdrop-filter: blur(10px);
+        }
+
+        /* Container Styles */
+        .container {
+            max-width: 900px;
+            margin: 80px auto 40px auto;
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            box-shadow: 0 20px 30px rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(15px);
+            transform: translateY(20px);
+            transition: transform 0.3s ease;
+            width: 100%;
+        }
+
+        .container:hover {
+            transform: translateY(0);
+        }
+
+        h2 {
+            color: #FFB800;
+            text-align: center;
+            font-size: 30px;
+            font-weight: 600;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+            margin-bottom: 20px;
+        }
+
+        p {
+            text-align: center;
+            font-size: 18px;
+            margin-bottom: 30px;
+            color: #E0E0E0;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 40px;
+        }
+
+        li {
+            background: #333;
+            border-radius: 15px;
+            padding: 15px;
+            text-align: center;
+            position: relative;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(5px);
+            width: 200px;
+            height: 200px; /* Fixed height to make it square */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        li:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        li a {
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 500;
+            margin-top: 10px;
+            display: block;
+            transition: color 0.3s ease;
+            text-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
+        }
+
+        li:hover a {
+            color: #FFB800;
+        }
+
+        li i {
+            font-size: 40px;
+            margin-bottom: 15px;
+            transition: transform 0.3s ease;
+        }
+
+        li:hover i {
+            transform: rotate(15deg);
+        }
+
+        /* Footer Styles */
+        .footer {
+            background-color: rgba(0, 0, 0, 0.7);
+            color: #E0E0E0;
+            padding: 20px 0;
+            font-size: 16px;
+            text-align: center;
+            margin-top: auto; /* Push footer to bottom if there's not enough content */
+        }
+
+        .footer a {
+            color: #FFB800;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .logout {
+            margin-top: 40px;
+            text-align: center;
+        }
+
+        .logout a {
+            color: #FF0000;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 12px 30px;
+            border: 2px solid #FF0000;
+            border-radius: 30px;
+            font-size: 18px;
+            transition: all 0.3s ease;
+        }
+
+        .logout a:hover {
+            background-color: #FF0000;
+            color: white;
+            transform: translateY(-5px);
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .container {
+                margin: 20px;
+                padding: 20px;
+            }
+
+            li {
+                padding: 15px;
+                height: 180px;
+                width: 180px; /* Adjust for mobile */
+            }
+
+            .navbar {
+                font-size: 22px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .navbar {
+                font-size: 18px;
+            }
+
+            li {
+                padding: 15px;
+                height: 160px;
+                width: 160px; /* Adjust for mobile */
+            }
+        }
+        .navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.navbar-left {
+    flex: 1;
+}
+
+.navbar-center {
+    flex: 2;
+    text-align: center;
+}
+
+.home-link {
+    color: #FFB800;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.home-link:hover {
+    color: white;
+}
+
+    </style>
+</head>
+<body>
+
+    <div class="navbar">
+        <div class="navbar-left">
+            <a href="{% url 'home' %}" class="home-link"><i class="fas fa-home"></i> Home</a>
+        </div>
+        <div class="navbar-center">
+            Welcome to AgroSphere Dashboard
+        </div>
+    </div>
+
+<div class="container">
+    <h2>Hello, {{ request.user.username }} 👋</h2>
+    <p>What would you like to do today?</p>
+
+    <ul>
+        <li><a href="{% url 'rice_disease' %}"><i class="fas fa-seedling"></i> 🌾 Rice Disease Prediction</a></li>
+        <li><a href="#"><i class="fas fa-flask"></i> 🌱 Soil Testing (Coming Soon)</a></li>
+        <li><a href="#"><i class="fas fa-box-open"></i> 📦 Product Store (Coming Soon)</a></li>
+        <li><a href="#"><i class="fas fa-robot"></i> 🤖 Chat with AgroBot</a></li>
+    </ul>
+
+    <div class="logout">
+        <a href="{% url 'logout' %}">Logout</a>
+    </div>
+</div>
+
+<div class="footer">
+    <p>&copy; 2025 AgroSphere. All Rights Reserved. | <a href="#">Privacy Policy</a></p>
+</div>
+
+</body>
+</html>

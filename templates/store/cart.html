@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Your Cart - AgroSphere</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+    .gradient-text {
+      background: linear-gradient(45deg, #16a34a, #22c55e, #86efac);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+  </style>
+</head>
+<body class="bg-gradient-to-b from-green-50 to-white text-gray-800 font-['Inter']">
+
+  <!-- Navbar (Same as previous pages) -->
+  <nav class="bg-white/80 backdrop-blur-md shadow-sm sticky top-0 z-50 border-b border-green-100">
+    <!-- Include the same navbar code from previous page here -->
+  </nav>
+
+  <!-- Cart Content -->
+  <main class="container mx-auto px-4 py-8 md:py-12">
+    <h1 class="text-3xl font-bold text-gray-900 mb-8">Your Cart (3 Items)</h1>
+
+    <div class="grid md:grid-cols-3 gap-8">
+      <!-- Cart Items -->
+      <div class="md:col-span-2 space-y-6">
+        <!-- Cart Item -->
+        <div class="bg-white p-6 rounded-2xl shadow-sm border border-green-50 hover:shadow-md transition-shadow">
+          <div class="flex gap-6">
+            <img src="https://via.placeholder.com/120" alt="Organic Fertilizer" 
+                 class="w-24 h-24 rounded-xl object-cover border border-green-100">
+            <div class="flex-1">
+              <div class="flex justify-between items-start">
+                <div>
+                  <h3 class="text-lg font-semibold text-gray-900">Organic Bio Fertilizer</h3>
+                  <p class="text-sm text-gray-500">5kg Bag</p>
+                </div>
+                <button class="text-gray-400 hover:text-red-500 transition-colors">
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                  </svg>
+                </button>
+              </div>
+              <div class="mt-4 flex items-center justify-between">
+                <div class="flex items-center gap-2">
+                  <button class="p-2 rounded-lg bg-green-50 text-green-600 hover:bg-green-100">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 12H4" />
+                    </svg>
+                  </button>
+                  <input type="number" value="2" 
+                         class="w-12 text-center border-0 bg-transparent text-gray-900 font-medium">
+                  <button class="p-2 rounded-lg bg-green-50 text-green-600 hover:bg-green-100">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+                    </svg>
+                  </button>
+                </div>
+                <span class="text-lg font-semibold text-green-600">$24.99</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Repeat other cart items here -->
+        <!-- Sample Item 2 -->
+        <div class="bg-white p-6 rounded-2xl shadow-sm border border-green-50 hover:shadow-md transition-shadow">
+          <!-- Similar structure as above -->
+        </div>
+
+      </div>
+
+      <!-- Order Summary -->
+      <div class="bg-white p-6 rounded-2xl shadow-sm border border-green-50 h-fit sticky top-24">
+        <h2 class="text-xl font-semibold mb-6">Order Summary</h2>
+        
+        <div class="space-y-4">
+          <div class="flex justify-between text-gray-600">
+            <span>Subtotal (3 items)</span>
+            <span>$89.97</span>
+          </div>
+          <div class="flex justify-between text-gray-600">
+            <span>Discount</span>
+            <span class="text-green-600">-$10.00</span>
+          </div>
+          <div class="flex justify-between text-gray-600">
+            <span>Estimated Tax</span>
+            <span>$8.99</span>
+          </div>
+          
+          <div class="border-t border-green-100 pt-4 mt-4">
+            <div class="flex justify-between font-semibold text-gray-900">
+              <span>Total</span>
+              <span>$88.96</span>
+            </div>
+          </div>
+
+          <div class="mt-6 space-y-4">
+            <button class="w-full bg-gradient-to-r from-green-600 to-emerald-600 text-white py-3 rounded-xl
+                      hover:opacity-90 transition-all shadow-md hover:shadow-lg">
+              Checkout Now
+            </button>
+            
+            <div class="text-center text-sm text-gray-500">or</div>
+            
+            <div class="flex gap-4">
+              <input type="text" placeholder="Promo Code" 
+                     class="flex-1 px-4 py-2 border border-green-200 rounded-lg focus:outline-none
+                            focus:ring-2 focus:ring-green-300">
+              <button class="px-4 py-2 bg-green-50 text-green-600 rounded-lg hover:bg-green-100 transition-colors">
+                Apply
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Continue Shopping -->
+    <div class="mt-12 text-center">
+      <a href="/products" class="text-green-600 hover:text-green-700 font-medium flex items-center justify-center gap-2">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+        </svg>
+        Continue Shopping
+      </a>
+    </div>
+  </main>
+
+</body>
+</html>

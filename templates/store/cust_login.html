@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login | AgroSphere</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html, body {
+      height: 100%;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(-45deg, #1f1c2c, #0f5132, #004d40, #1f1c2c);
+      background-size: 400% 400%;
+      animation: gradientFlow 10s ease infinite;
+      display: flex;
+      flex-direction: column;
+    }
+
+    @keyframes gradientFlow {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    main {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .login-container {
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(15px);
+      border-radius: 20px;
+      padding: 40px;
+      width: 100%;
+      max-width: 400px;
+      text-align: center;
+      animation: fadeIn 1s ease-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    h2 {
+      font-size: 2.2rem;
+      margin-bottom: 30px;
+      color: #dbe4e1;
+    }
+
+    .input-group {
+      position: relative;
+      margin-bottom: 25px;
+      text-align: left;
+    }
+
+    .input-group label {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 0.95rem;
+      color: #cfcfcf;
+    }
+
+    .input-group input {
+      width: 100%;
+      padding: 14px 18px;
+      padding-left: 44px;
+      border: none;
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.08);
+      color: #fff;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+    }
+
+    .input-group input:focus {
+      outline: none;
+      background: rgba(255, 255, 255, 0.15);
+      box-shadow: 0 0 0 2px #566a62;
+    }
+
+    .input-group i {
+      position: absolute;
+      top: 40px;
+      left: 15px;
+      color: #00e68a;
+    }
+
+    .login-btn {
+      width: 100%;
+      padding: 14px;
+      font-size: 1.1rem;
+      background-color: #0c7147;
+      border: none;
+      border-radius: 25px;
+      color: #000;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .login-btn:hover {
+      background-color: #359d61;
+      transform: translateY(-3px);
+    }
+
+    .forgot-password {
+      display: inline-block;
+      margin-top: 15px;
+      font-size: 0.9rem;
+      color: #ccc;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .forgot-password:hover {
+      color: #33ff99;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 0.85rem;
+      padding: 20px 0;
+      color: #ccc;
+    }
+
+    footer a {
+      color: #00e68a;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      color: #33ff99;
+      text-decoration: underline;
+    }
+
+    @media (max-width: 600px) {
+      .login-container {
+        padding: 30px 25px;
+      }
+      h2 {
+        font-size: 1.7rem;
+      }
+    }
+
+    .back-home {
+      position: absolute;
+      top: 20px;
+      left: 25px;
+      color: #e5ede6;
+      font-size: 0.95rem;
+      text-decoration: none;
+      font-weight: 500;
+      background: rgba(255, 255, 255, 0.05);
+      padding: 8px 12px;
+      border-radius: 8px;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    .back-home:hover {
+      background: rgba(0, 230, 138, 0.15);
+      color: #08a04f;
+    }
+
+    .signup-link {
+      margin-top: 15px;
+      display: inline-block;
+      font-size: 0.95rem;
+      color: #ccc;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .signup-link:hover {
+      color: #33ff99;
+    }
+  </style>
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+  <!-- Back to Home Link -->
+  <a href="/" class="back-home">← Back to Home</a>
+  
+  <main>
+    <div class="login-container">
+      <h2>Login</h2>
+      <form method="POST" action="{% url 'login' %}">
+        {% csrf_token %}
+        <div class="input-group">
+          <label for="username" aria-label="Enter your username" aria-required="true">Username</label>
+          <i class="fas fa-user"></i>
+          <input type="text" id="username" name="username" required placeholder="Enter your username" aria-required="true" />
+        </div>
+        <div class="input-group">
+          <label for="password" aria-label="Enter your password" aria-required="true">Password</label>
+          <i class="fas fa-lock"></i>
+          <input type="password" id="password" name="password" required placeholder="Enter your password" autocomplete="current-password" aria-required="true" />
+        </div>
+        <button type="submit" class="login-btn">Login</button>
+        <a href="{% url 'forgot_password'%}" class="forgot-password">Forgot Password?</a>
+      </form>
+      <a href="{% url 'signup' %}" class="signup-link">Don't have an account? Sign up here</a>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 AgroSphere. All Rights Reserved. <a href="#">Visit Our Website</a></p>
+  </footer>
+
+</body>
+</html>

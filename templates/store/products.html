@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AgroSphere</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+    .gradient-text {
+      background: linear-gradient(45deg, #16a34a, #22c55e, #86efac);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+  </style>
+</head>
+<body class="bg-gradient-to-b from-green-50 to-white text-gray-800 font-['Inter']">
+
+  <!-- Modern Navbar -->
+  <nav class="bg-white/80 backdrop-blur-md shadow-sm sticky top-0 z-50 border-b border-green-100">
+    <div class="container mx-auto px-4 py-3 flex flex-wrap justify-between items-center">
+      
+      <!-- Logo with Gradient -->
+      <a href="/" class="text-2xl font-bold gradient-text hover:opacity-90 transition">
+        <span class="text-green-600">🌾</span> AgroSphere
+      </a>
+
+      <!-- Enhanced Search Form -->
+      <form id="searchForm" class="flex items-center bg-white rounded-xl px-4 py-2 shadow-sm ring-1 ring-green-100 hover:ring-green-300 transition-all w-full md:w-96 mt-3 md:mt-0">
+        <input 
+          type="text" 
+          id="searchInput" 
+          name="q" 
+          placeholder="Search products..." 
+          class="outline-none bg-transparent w-full text-gray-700 placeholder-gray-400 text-sm"
+        />
+        <button type="submit" class="ml-2 text-green-600 hover:text-green-800 transition-colors">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+          </svg>
+        </button>
+      </form>
+
+      <!-- Desktop Menu -->
+      <div class="hidden md:flex items-center space-x-6 text-gray-700 font-medium ml-8">
+        <a href="/" class="hover:text-green-600 transition-colors px-3 py-1 rounded-lg hover:bg-green-50">Home</a>
+
+        <!-- Enhanced Products Dropdown -->
+        <div class="relative group">
+          <button class="flex items-center hover:text-green-600 px-3 py-1 rounded-lg hover:bg-green-50 transition-colors">
+            Products
+            <svg class="ml-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
+          <div class="absolute hidden group-hover:block animate-fade-in-up pt-2">
+            <div class="bg-white rounded-xl shadow-lg p-2 min-w-[200px] border border-green-50">
+              <a href="#" class="flex items-center px-4 py-2.5 text-sm hover:bg-green-50 rounded-lg transition-colors">
+                🌱 Fertilizers
+              </a>
+              <a href="#" class="flex items-center px-4 py-2.5 text-sm hover:bg-green-50 rounded-lg transition-colors">
+                🌾 Seeds
+              </a>
+              <a href="#" class="flex items-center px-4 py-2.5 text-sm hover:bg-green-50 rounded-lg transition-colors">
+                🔧 Tools
+              </a>
+              <a href="#" class="flex items-center px-4 py-2.5 text-sm hover:bg-green-50 rounded-lg transition-colors">
+                🍶 Organic Products
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <a href="/disease-detection" class="hover:text-green-600 px-3 py-1 rounded-lg hover:bg-green-50 transition-colors">Crop Health</a>
+        <a href="/soil-testing" class="hover:text-green-600 px-3 py-1 rounded-lg hover:bg-green-50 transition-colors">Soil Analysis</a>
+        <a href="/organic-store" class="hover:text-green-600 px-3 py-1 rounded-lg hover:bg-green-50 transition-colors">Organic Store</a>
+      </div>
+
+      <!-- Right Icons -->
+      <div class="flex items-center space-x-4 mt-3 md:mt-0">
+        <a href="/cart" class="relative text-gray-600 hover:text-green-600 transition-colors p-2 hover:bg-green-50 rounded-lg">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+          </svg>
+          <span class="absolute top-0 right-0 bg-green-500 text-xs text-white rounded-full px-2 py-0.5">3</span>
+        </a>
+        <a href="/login" class="bg-gradient-to-r from-green-600 to-emerald-600 text-white px-5 py-2 rounded-lg hover:opacity-90 transition-all shadow-md hover:shadow-lg">
+          Sign In
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="container mx-auto px-4 mt-16 text-center">
+    <div class="max-w-4xl mx-auto">
+      <h1 class="text-5xl font-bold text-gray-900 mb-6 leading-tight">
+        Cultivate Success with 
+        <span class="gradient-text">Smart Farming</span>
+      </h1>
+      <p class="text-xl text-gray-600 mb-8">
+        Advanced agricultural solutions combining AI-powered diagnostics, premium organic products, and expert farming resources.
+      </p>
+      
+      <div class="flex justify-center space-x-4">
+        <a href="#products" class="bg-green-600 text-white px-8 py-3 rounded-xl hover:bg-green-700 transition-colors shadow-lg hover:shadow-xl">
+          Explore Products
+        </a>
+        <a href="#learn" class="border-2 border-green-600 text-green-600 px-8 py-3 rounded-xl hover:bg-green-50 transition-colors">
+          Learn More
+        </a>
+      </div>
+    </div>
+
+    <!-- Feature Cards -->
+    <div class="grid md:grid-cols-3 gap-8 mt-16 px-4">
+      <div class="bg-white p-6 rounded-2xl shadow-md hover:shadow-lg transition-shadow border border-green-50">
+        <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-4">
+          <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+        </div>
+        <h3 class="text-xl font-semibold mb-2">Crop Diagnostics</h3>
+        <p class="text-gray-600">Instant AI-powered plant disease detection with 95% accuracy</p>
+      </div>
+
+      <div class="bg-white p-6 rounded-2xl shadow-md hover:shadow-lg transition-shadow border border-green-50">
+        <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-4">
+          <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+          </svg>
+        </div>
+        <h3 class="text-xl font-semibold mb-2">Soil Analysis</h3>
+        <p class="text-gray-600">Comprehensive soil testing and nutrient management solutions</p>
+      </div>
+
+      <div class="bg-white p-6 rounded-2xl shadow-md hover:shadow-lg transition-shadow border border-green-50">
+        <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-4">
+          <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v13m0-13V6a2 2 0 112 2h-2zm0 0V5.5A2.5 2.5 0 109.5 8H12zm-7 4h14M5 12a2 2 0 110-4h14a2 2 0 110 4M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7" />
+          </svg>
+        </div>
+        <h3 class="text-xl font-semibold mb-2">Organic Store</h3>
+        <p class="text-gray-600">Certified organic products for sustainable farming</p>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    document.getElementById('searchForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+      const query = document.getElementById('searchInput').value.trim();
+      if (query) {
+        window.location.href = `/search?q=${encodeURIComponent(query)}`;
+      }
+    });
+  </script>
+</body>
+</html>
